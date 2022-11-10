@@ -75,7 +75,7 @@ echo "\${cpugraph 32,280}"
 CoreCount=$(cat /proc/cpuinfo | grep processor | wc -l)
 
 # Change count of cores here for testing purposes
-#CoreCount=15
+CoreCount=5
 #echo "corecount $CoreCount"
 
 # Draw a separate CPU statistic for each of the cores
@@ -148,7 +148,7 @@ Pingtime=$(ping -c 1 1.1.1.1 | grep "bytes from" | awk '{print $7}' | tr -d 'tim
 echo "\${color #33f}ping: \${color #85f}$Pingtime\${color #33f}ms \${hr 1}"
 
 
-# echo "\${execpi 5 /etc/conky/Network.sh 2>&1}"
+echo "\${execpi 1 /etc/conky/conky_Ping.sh 2>&1}"
 
 
 
