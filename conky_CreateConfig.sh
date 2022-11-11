@@ -66,7 +66,7 @@ conky.text = [["
 # Show time+date and general hardware info
 echo "\$alignc\${color #999}\${time %A %d.%m.%Y - %T}\$color"
 echo "\$alignc\${color #555}\$nodename - \$kernel on \$machine\$color"
-echo "\${color #555}CPU \${color #999}\$freq_g\${color #555} @ \${color #999}\$cpu%\${color #555} \${goto 110}Temp:\${color #999} \${hwmon 1 temp 1 1 0}°\${color #555}C\$alignr Uptime \${color #999}\$uptime"
+echo "\${color #555}CPU \${color #999}\$freq_g\${color #555} @ \${color #999}\$cpu%\${color #555} \${goto 100}Temp:\${color #999} \${hwmon 1 temp 1 1 0}°\${color #555}C\$alignr Uptime \${color #999}\$uptime"
 
 # Show CPU usage (all cores combined)
 echo "\${cpugraph 32,280}"
@@ -75,7 +75,7 @@ echo "\${cpugraph 32,280}"
 CoreCount=$(cat /proc/cpuinfo | grep processor | wc -l)
 
 # Change count of cores here for testing purposes
-CoreCount=5
+# CoreCount=5
 #echo "corecount $CoreCount"
 
 # Draw a separate CPU statistic for each of the cores
@@ -130,7 +130,6 @@ else
         fi
     done
 fi
-echo "\${hr 1}"
 
 # Get a list of all network interfaces that are either UP or RUNNING (only their names)
 Interfaces=$(ifconfig | grep "UP\|RUNNING" | awk '{print $1}' | grep ':' | tr -d ':' | grep -v lo)
@@ -143,12 +142,7 @@ do
     echo "\${color #040}\${upspeedgraph $Line 32,135}  \${color #400}\${downspeedgraph $Line 32,135}\${color red}"
 done
 
-# color was set to red in case ping returns an error, resulting in a red warning
-Pingtime=$(ping -c 1 1.1.1.1 | grep "bytes from" | awk '{print $7}' | tr -d 'time=')
-echo "\${color #33f}ping: \${color #85f}$Pingtime\${color #33f}ms \${hr 1}"
-
-
-echo "\${execpi 1 /etc/conky/conky_Ping.sh 2>&1}"
+echo "\${color #33f}ping: \${color #85f}\${execpi 1 /etc/conky/conky_Ping.sh 2>&1}\${color #33f}ms \${hr 1}"
 
 
 
