@@ -23,7 +23,7 @@ You can find the config file in `/etc/conky/conky.conf`
 ## **How it works:**
 The installation script `conky_INSTALL.sh` creates tiny scripts in `/etc/conky/` which will be called upon for live data. All they to is request data, parse it (grep grep grep) & echo it back.\
 The Launcher `conky_LAUNCHER.sh` will call `conky_CreateConfig.sh` and overwrite your previous conky config with its returning text, sleep for a second and then launch Conky, which will in return use the freshly created conky config file.\
-`conky_CreateConfig.sh` is where the magic happens: The script will take a look at you hardware (# of cpu cores, networking interfaces & their status, etc) and create a new Conky configuration that's just right for your setup, showing only the sensory data that is available. No need to remove unwanted graphs for additional cores, no need to modify the config so it recognizes your network card (which propably won't be `eth0`. It does all that for you :)
+`conky_CreateConfig.sh` is where the magic happens: The script will take a look at you hardware (# of cpu cores, networking interfaces & their status, etc) and create a new Conky configuration that's just right for your setup, showing only the sensory data that is available. No need to remove unwanted graphs for additional cores, no need to modify the config so it recognizes your network card (which propably won't be `eth0`). It does all that for you :)
 
 ## **What's missing:**
 So far no statistics about harddrives and file transfers is available. Also colors are static, meaning cpu usage does not show stress via color change.

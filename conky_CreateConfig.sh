@@ -106,18 +106,18 @@ else
         # check if there's 4 or more cores left
         if [ $((Count+4)) -le $CoreCount ] ; then
             # draw 4 diagrams
-            echo "\${color #33f}CPU $Count \${color #85f}\${cpu cpu$Count}% \${goto 72} \${color #33f}CPU ${Count+1} \${color #85f}\${cpu cpu${Count+1}}% \${goto 144} \${color #33f}CPU ${Count+2} \${color #85f}\${cpu cpu${Count+2}}% \${goto 216} \${color #33f}CPU ${Count+3} \${color #85f}\${cpu cpu${Count+3}}%"
-            echo "\${cpugraph cpu$Count 24,64} \${goto 72} \${cpugraph cpu${Count+1} 24,64} \${goto 144} \${cpugraph cpu${Count+2} 24,64} \${goto 216} \${cpugraph cpu${Count+3} 24,64}"
+            echo "\${color #33f}CPU $Count \${color #85f}\${cpu cpu$Count}% \${goto 72} \${color #33f}CPU $(($Count+1)) \${color #85f}\${cpu cpu$(($Count+1))}% \${goto 144} \${color #33f}CPU $(($Count+2)) \${color #85f}\${cpu cpu$(($Count+2))}% \${goto 216} \${color #33f}CPU $(($Count+3)) \${color #85f}\${cpu cpu$(($Count+3))}%"
+            echo "\${cpugraph cpu$Count 24,64} \${goto 72} \${cpugraph cpu$(($Count+1)) 24,64} \${goto 144} \${cpugraph cpu$(($Count+2)) 24,64} \${goto 216} \${cpugraph cpu$(($Count+3)) 24,64}"
             Count=$((Count+4))
         elif [ $((Count+3)) -le $CoreCount ] ; then
             # draw 3 diagrams
-            echo "\${color #33f}CPU $Count \${color #85f}\${cpu cpu$Count}% \${goto 72} \${color #33f}CPU ${Count+1} \${color #85f}\${cpu cpu${Count+1}}% \${goto 144} \${color #33f}CPU ${Count+2} \${color #85f}\${cpu cpu${Count+2}}%"
-            echo "\${cpugraph cpu$Count 24,64} \${goto 72} \${cpugraph cpu${Count+1} 24,64} \${goto 144} \${cpugraph cpu${Count+2} 24,64}"
+            echo "\${color #33f}CPU $Count \${color #85f}\${cpu cpu$Count}% \${goto 72} \${color #33f}CPU $(($Count+1)) \${color #85f}\${cpu cpu$(($Count+1))}% \${goto 144} \${color #33f}CPU $(($Count+2)) \${color #85f}\${cpu cpu$(($Count+2))}%"
+            echo "\${cpugraph cpu$Count 24,64} \${goto 72} \${cpugraph cpu$(($Count+1)) 24,64} \${goto 144} \${cpugraph cpu$(($Count+2)) 24,64}"
             Count=$((Count+3))
         elif [ $((Count+2)) -le $CoreCount ] ; then
             # draw 2 diagrams
-            echo "\${color #33f}CPU $Count \${color #85f}\${cpu cpu$Count}% \${goto 72} \${color #33f}CPU ${Count+1} \${color #85f}\${cpu cpu${Count+1}}%"
-            echo "\${cpugraph cpu$Count 24,64} \${goto 72} \${cpugraph cpu${Count+1} 24,64}"
+            echo "\${color #33f}CPU $Count \${color #85f}\${cpu cpu$Count}% \${goto 72} \${color #33f}CPU $(($Count+1)) \${color #85f}\${cpu cpu$(($Count+1))}%"
+            echo "\${cpugraph cpu$Count 24,64} \${goto 72} \${cpugraph cpu$(($Count+1)) 24,64}"
             Count=$((Count+2))
         elif [ $((Count+1)) -le $CoreCount ] ; then
             # draw 1 diagram
